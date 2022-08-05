@@ -2,17 +2,18 @@ import styled from "styled-components";
 
 
 export const Page = styled.div`
-    display: grid;
-    width: 100%;
+    display: flex;
     height: 100%;
-    grid-template-columns: 1fr 1fr 1fr;
-    background-color: red;
+    width: 100%;
+    padding: 0;
+    margin: 0;
 `
 
 export const Flex = styled.div`
     display: flex;
     width: 100%;
-    height: 20px;
+    height: 100%;
     color: blue;
-    border: 2px solid red;
+    justify-content: center;
+    align-items: center;
 `
