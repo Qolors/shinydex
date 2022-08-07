@@ -4,6 +4,8 @@ import { Page, Flex } from "./components/styles/body.styled";
 import { Card } from "./components/Card";
 import { Searchbar } from "./components/Searchbar";
 import { Loading } from "./components/Loading";
+import { Firstload } from "./components/Firstload";
+import { Transition } from "./components/Transition";
 
 function App() {
 
@@ -12,6 +14,8 @@ function App() {
   const [error, setError] = useState(null);
   const [store, setStore] = useState({});
   const [found, setFound] = useState(false);
+  const [first, setFirst] = useState(true);
+  const [transition, setTransition] = useState(false);
 
   const handleKeyDown = (event) => {
     if (event.key === 'Enter'){
@@ -19,13 +23,20 @@ function App() {
     }
   }
 
+  const setTimer = () => (setTimeout(() => {
+    setTransition(false);
+  }, 3500));
+
   const findPokemon = (props) => {
+    setTransition(true);
+    setTimer();
     setFound(false);
     data && Object.keys(data).map(key => {
       if (data[key]["name"].toLowerCase() === props.toLowerCase()){
         let fetchedPokemon = data[key];
         setStore(fetchedPokemon);
         setFound(true);
+        setFirst(false);
       }
     }
     )
@@ -63,6 +74,12 @@ function App() {
 return(
   <div>
     {loading ? (<Loading />) : (
+    first ? (
+    <>
+      <Firstload />
+      <Searchbar data={data} findPokemon={findPokemon} handleKeyDown={handleKeyDown}/>
+    </>
+    ) : ( transition ? (<Transition />) : (
     <Page>
       {data && <Searchbar data={data} findPokemon={findPokemon} handleKeyDown={handleKeyDown} />}
       <Flex>
@@ -76,7 +93,7 @@ return(
                   research={store.found_research}/> : null}
       </Flex>
     </Page>
-    )
+    )))
   }
   </div>
 )

@@ -7,7 +7,7 @@ export const Loading = () => {
     return (
         <LoadPage>
             <img src={loader} alt="Loading" />
-            <div>Welcome to Shinydex!</div>
+            <div>Gathering Shiny..</div>
 
         </LoadPage>
     )

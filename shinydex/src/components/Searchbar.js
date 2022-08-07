@@ -28,7 +28,7 @@ export const Searchbar = ({ data, handleKeyDown, findPokemon }) => {
     }
     return (
         <Box>
-            <div>Find your Pokemon</div>
+            <h2>Find your Pokemon</h2>
             <Input type="text" value={value} onKeyDown={handleKeyDown} onChange={onChange} />
             <List />
         </Box>
@@ -48,27 +48,36 @@ const Selection = styled.button`
     font-weight: bolder;
     justify-content: center;
     margin: 0.5em;
-    border: none;
-    background-color: #ffffff;
+    border: 2px solid white;
+    background-image: linear-gradient(to right, #6441A5 0%, #2a0845  51%, #6441A5  100%);
+    background-size: 200% 100%;
     border-radius: 20px;
-
+    color: white;
+    transition: .5s ease-out;
+    &:hover {
+        background-position: right center; /* change the direction of the change here */
+        color: #fff;
+        text-decoration: none;
+        cursor: pointer;
+      }
+      
 `
 
 const Box = styled.div`
     z-index: 1;
     position: fixed;
     bottom: 0px;
-    color: black;
+    color: white;
     font-weight: bold;
-    min-height: 100px;
+    min-height: 50px;
     display: flex;
     gap: 0.2em;
     width: 100%;
     margin: auto;
     justify-content: center;
     align-items: center;
-    flex-direction: column-reverse;
-    background-color: #999DAB;
+    flex-direction: column;
+    background-color: #24243e;
     border-top-left-radius: 24px;
     border-top-right-radius: 24px;
     padding-bottom: 1em;
@@ -78,15 +87,19 @@ const Box = styled.div`
 const Input = styled.input`
     width: 80%;
     height: 25px;
+    background-color: gray;
     border-radius: 10px;
     max-width: 250px;
     border: none;
+    color: white;
+    font-size: 1em;
 `
 
 const ListContainer = styled.div`
     display: flex;
-    width: 80%;
+    width: 100%;
     max-height: 100vh;
     overflow: auto;
     justify-content: center;
 `
+
