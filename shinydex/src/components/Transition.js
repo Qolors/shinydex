@@ -12,7 +12,7 @@ export const Transition = () => {
         animate="center" 
     >
         <img src={transitionGif} alt="Loading" />
-        <div>{facts["1"]["fact"]}</div>
+        <div>{facts["2"]["fact"]}</div>
     </LoadPage>
   )
 }
@@ -23,6 +23,8 @@ const LoadPage = styled.div`
     justify-content: center;
     align-items: center;
     min-height: 100vh;
+    width: 90%;
+    text-align: center;
     color: white;
     object-fit: contain;
     flex-direction: column;
