@@ -10,7 +10,9 @@ const GlobalStyle = createGlobalStyle`
     padding: 0;
     min-height: 100vh;
     width: 100%;
-    background-color: silver;
+    background-color: #FFFFFF;
+    font-family: 'Aldrich', sans-serif;
+    font-family: 'Jura', sans-serif;
   }
 
 `

@@ -2,6 +2,8 @@ import React, { useEffect } from "react";
 import { useState } from 'react';
 import { Page, Flex } from "./components/styles/body.styled";
 import { Card } from "./components/Card";
+import { Searchbar } from "./components/Searchbar";
+import { Loading } from "./components/Loading";
 
 function App() {
 
@@ -11,25 +13,28 @@ function App() {
   const [store, setStore] = useState({});
   const [found, setFound] = useState(false);
 
-  
+  const handleKeyDown = (event) => {
+    if (event.key === 'Enter'){
+        findPokemon(event.target.value);
+    }
+  }
 
-  const findPokemon = () => {
+  const findPokemon = (props) => {
     setFound(false);
-    let pokeName = "Charmander";
     data && Object.keys(data).map(key => {
-      if (data[key]["name"] === pokeName){
+      if (data[key]["name"].toLowerCase() === props.toLowerCase()){
         let fetchedPokemon = data[key];
         setStore(fetchedPokemon);
         setFound(true);
-        return
       }
     }
     )
   }
 
-  useEffect(() => {
-    
   
+
+  useEffect(() => {
+
   const getData = async () => {
     try {
       const response = await fetch(
@@ -55,19 +60,25 @@ function App() {
   getData()
 }, [])
 
-return( 
-  <Page>
-    {!found && <button onClick={() => findPokemon()}>Find</button>}
-    <Flex>
-    {found ? <Card 
-                name={store.name} 
-                egg={store.found_egg}
-                evolution={store.found_evolution}
-                photo={store.found_photobomb}
-                raid={store.found_raid}
-                research={store.found_research}/> : <div>No Poke Found!</div>}
-    </Flex>
-  </Page>
+return(
+  <div>
+    {loading ? (<Loading />) : (
+    <Page>
+      {data && <Searchbar data={data} findPokemon={findPokemon} handleKeyDown={handleKeyDown} />}
+      <Flex>
+      {found ? <Card 
+                  id={store.id}
+                  name={store.name} 
+                  egg={store.found_egg}
+                  evolution={store.found_evolution}
+                  photo={store.found_photobomb}
+                  raid={store.found_raid}
+                  research={store.found_research}/> : null}
+      </Flex>
+    </Page>
+    )
+  }
+  </div>
 )
 
 }
