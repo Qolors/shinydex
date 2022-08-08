@@ -90,6 +90,7 @@ return(
                   evolution={store.found_evolution}
                   photo={store.found_photobomb}
                   raid={store.found_raid}
+                  wild={store.found_wild}
                   research={store.found_research}/> : null}
       </Flex>
     </Page>
