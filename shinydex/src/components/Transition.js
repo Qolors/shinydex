@@ -11,7 +11,7 @@ export const Transition = () => {
         initial="offset"
         animate="center" 
     >
-        <img src={transitionGif} alt="Loading" />
+        <PokeImg src={transitionGif} alt="Loading" />
         <div>{facts["2"]["fact"]}</div>
     </LoadPage>
   )
@@ -23,12 +23,21 @@ const LoadPage = styled.div`
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    width: 90%;
+    width: 100%;
     text-align: center;
     color: white;
-    object-fit: contain;
     flex-direction: column;
-    font-size: 1.5em;
+    font-size: 1.2em;
+    font-weight: bold;
+`
+
+const PokeImg = styled.img`
+    display: flex;
+    object-fit: contain;
+    max-width: 60%;
+    justify-content: center;
+    align-items: center;
+
 `
 
 const container = {

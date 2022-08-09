@@ -7,6 +7,8 @@ export const Page = styled.div`
     min-height: 100vh;
     padding: 0;
     margin: 0;
+    justify-content: center;
+    margin: auto;
 `
 
 export const Flex = styled.div`

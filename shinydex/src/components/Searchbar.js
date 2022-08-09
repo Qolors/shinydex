@@ -49,10 +49,10 @@ const Selection = styled.button`
     justify-content: center;
     margin: 0.5em;
     border: 2px solid white;
-    background-image: linear-gradient(to right, #6441A5 0%, #2a0845  51%, #6441A5  100%);
+    background-image: linear-gradient(to right, #a1c4fd 0%, #c2e9fb  51%, #a1c4fd  100%);
     background-size: 200% 100%;
     border-radius: 20px;
-    color: white;
+    color: black;
     transition: .5s ease-out;
     &:hover {
         background-position: right center; /* change the direction of the change here */
@@ -73,6 +73,7 @@ const Box = styled.div`
     display: flex;
     gap: 0.2em;
     width: 100%;
+    max-width: 600px;
     margin: auto;
     justify-content: center;
     align-items: center;

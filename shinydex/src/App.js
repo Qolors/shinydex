@@ -6,6 +6,7 @@ import { Searchbar } from "./components/Searchbar";
 import { Loading } from "./components/Loading";
 import { Firstload } from "./components/Firstload";
 import { Transition } from "./components/Transition";
+import styled from "styled-components";
 
 function App() {
 
@@ -72,7 +73,7 @@ function App() {
 }, [])
 
 return(
-  <div>
+  <Parent>
     {loading ? (<Loading />) : (
     first ? (
     <>
@@ -96,9 +97,17 @@ return(
     </Page>
     )))
   }
-  </div>
+  </Parent>
 )
 
 }
 
 export default App;
+
+
+const Parent = styled.div`
+  display: flex;
+  width: 100%;
+  justify-content: center;
+
+`

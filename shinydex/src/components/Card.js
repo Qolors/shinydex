@@ -58,21 +58,24 @@ export const Card = ({id, name, egg, evolution, photo, raid, research, wild}) =>
 
 const Container = styled.div`
     display: flex;
-    width: 400px;
+    width: 100%;
     height: 100%;
+    align-items: center;
     border-radius: 24px;
     flex-direction: column;
     margin-top: 2em;
     gap: 1em;
-    margin-bottom: 200px;
+    margin-bottom: 120px;
     color: white;
+    text-align: center;
 `
 const ImageContainer = styled.img`
     display: flex;
     object-fit: contain;
     width: 100%;
-    height: 300px;
-    
+    @media (max-width: 600px) {
+        width: 40%;
+    }
 `
 
 const StatContainer = styled.div`
@@ -88,14 +91,13 @@ const StatContainer = styled.div`
 const Header = styled.div`
     display: flex;
     justify-content: center;
-    gap: 3em;
+    gap: 1em;
     flex-direction: column;
     align-items: center;
-    width: 100%;
-    height: 500px;
+    max-width: 300px;
+    height: 300px;
     font-size: 2em;
     font-weight: bolder;
-    background: rgba(138, 58, 167, 0.0);
     border-radius: 16px;
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
     backdrop-filter: blur(7px);
@@ -106,17 +108,23 @@ const Header = styled.div`
 const Blobs = styled.div`
     display: flex;
     width: 100%;
+    max-width: 300px;
     border-radius 18px;
     height: 2em;
     justify-content: space-between;
     align-items: center;
     font-weight: bolder;
-    font-size: 1.255em;
+    font-size: 1.25em;
     padding: 1em;
     color: #ffffff;
     background-color: rgba(255, 255, 255, 0.1);
     backdrop-filter: blur(5px);
     border: 3px solid white;
+    @media (max-width: 600px) {
+        width: 200px;
+        font-size: 1em;
+        height: 1em;
+    }
 
 `
 

@@ -8,11 +8,11 @@ export const Firstload = () => {
 
     return (
         <LoadPage>
-            <img src={first} alt="Loading" />
-            <h2>Welcome to ShinyDex!</h2>
+            <LandingImage src={first} alt="Loading" />
+            <LeadingText>Welcome to ShinyDex!</LeadingText>
             <Desc>A quick reference resource on how to catch available Shiny Pokemon.</Desc>
             <Desc>Search below to get started!</Desc>
-            <Icon icon={arrowDown} />
+            <Icon style={{ fontSize: '2em', color: 'yellow' }} icon={arrowDown} />
 
         </LoadPage>
     )
@@ -25,16 +25,34 @@ const LoadPage = styled.div`
     align-items: center;
     min-height: 100vh;
     color: white;
-    object-fit: contain;
     flex-direction: column;
     font-size: 1em;
     width: 70%;
     margin: auto;
+    @media (max-width: 600px) {
+        width: 100%;
+    }
 `
 
 const Desc = styled.p`
     font-size: 1em;
-    max-width: 75%;
+    max-width: 90%;
+    font-weight: bold;
+    text-align: center;
+    @media (max-width: 600px) {
+        font-size: 1em;
+    }
+`
+
+const LandingImage = styled.img`
+    display: flex;
+    object-fit: contain;
+    max-width: 90%;
+
+`
+
+const LeadingText = styled.h2`
+    font-size: 32px;
     font-weight: bold;
     text-align: center;
 `
